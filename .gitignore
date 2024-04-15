@@ -1,0 +1,32 @@
+# Cache
+**/__pycache__
+
+# Jupyter Notebook
+**/.ipynb_checkpoints
+
+# Environments
+.venv
+venv/
+Scripts/
+
+# Django content
+project/email/*
+project/project/static_root/*
+project/project/media/*
+
+# Datasets
+Datasets/IMDB/*
+
+### VisualStudioCode ###
+**/.idea
+**/.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+### VisualStudioCode Patch ###
+**/.history
+.ionide

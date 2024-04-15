@@ -1,0 +1,12 @@
+Django==5.0.1
+django_extensions==3.2.3
+python-decouple==3.8
+sorl_thumbnail==12.10.0
+pillow==10.2.0
+notebook==6.5.6
+pre-commit
+tqdm
+pandas
+jupyter
+ipython
+BeautifulSoup4

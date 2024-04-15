@@ -1,0 +1,56 @@
+exclude: ^\. # Exclude every file or folder starting with a dot.
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: trailing-whitespace
+        exclude: migrations/.*|^Datasets/
+        types: [text]
+    -   id: end-of-file-fixer
+        exclude: migrations/.*|^Datasets/
+        types: [text]
+    -   id: requirements-txt-fixer 
+        files: /requirements.*.txt$
+    -   id: check-added-large-files
+    -   id: check-case-conflict
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+    -   id: isort
+        exclude: migrations/.*|^Datasets/
+        name: isort
+        args:
+        -   --filter-files
+        -   --profile=black
+
+-   repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+    -   id: black
+        exclude: migrations/.*|^Datasets/
+        files: ^project/
+        types: [python]
+        require_serial: true
+        args: [
+          '--line-length=256',
+        ]
+    -   id: black-jupyter
+        files: ^notebooks/
+        types_or: [python, pyi, jupyter]
+        require_serial: true
+        additional_dependencies: [".[jupyter]"]
+
+-   repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+    -   id: flake8
+        exclude: migrations/.*|^project/project/settings/|^Datasets/
+        additional_dependencies:
+        -   flake8-black
+        args: [
+          '--max-line-length=256',
+          '--ignore=E203,E402,E501,E800,W503',
+          '--select=B,C,E,F,W,T4,B9'
+        ]
